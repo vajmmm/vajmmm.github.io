@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb4ff;
+  background: #082b0e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2587,7 +2587,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 body {
-  background: url("images/background.jpg");
+  background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F20%2F20160720113823_eQBS3.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1714552295&t=1515232216c1b481540c472159d048db");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
