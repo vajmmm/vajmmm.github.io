@@ -164,6 +164,168 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/14/sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="vajmmm">
+      <meta itemprop="description" content="世上有味之事，包括诗，酒，哲学，爱情，往往无用。吟无用之诗，醉无用之酒，读无用之书，钟无用之情，终于成一无用之人，却因此活得有滋有味。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无用小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/14/sql/" class="post-title-link" itemprop="url">sql</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-14 16:19:53 / 修改时间：16:44:18" itemprop="dateCreated datePublished" datetime="2024-04-14T16:19:53+08:00">2024-04-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>本文章用于补充记录编者学习过程中对sql理解不足之处</p>
+</blockquote>
+<h1 id="union-select-1-2-3"><a href="#union-select-1-2-3" class="headerlink" title="union select 1,2,3"></a>union select 1,2,3</h1><p>union联合查询可以判断SQL语句中哪些地方可以被替代,在检验用户名密码时可以替换检验结果。<br>下面以BUUCTF中BabySQli举例：</p>
+<img src="/2024/04/14/sql/Babysql.png" class="">
+<p>此题的关键在于抓包得到注入点后，使用union select判断出用户名与密码的位置，查看源代码得知密码经过md5加密</p>
+<img src="/2024/04/14/sql/Babysql_code.png" class="">
+<p>使用union select，将原本查询出的密码用自己构造的密码代替，以此思路构造出payload：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27; union select 1,&#x27;</span>admin<span class="string">&#x27;,&#x27;</span><span class="number">202</span>cb962ac59075b964b07152d234b70<span class="string">&#x27;#</span></span><br></pre></td></tr></table></figure>
+<p>得到flag</p>
+<img src="/2024/04/14/sql/Babysql_flag.png" class="">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/12/xss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="vajmmm">
+      <meta itemprop="description" content="世上有味之事，包括诗，酒，哲学，爱情，往往无用。吟无用之诗，醉无用之酒，读无用之书，钟无用之情，终于成一无用之人，却因此活得有滋有味。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无用小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/12/xss/" class="post-title-link" itemprop="url">xss</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-12 14:39:29" itemprop="dateCreated datePublished" datetime="2024-04-12T14:39:29+08:00">2024-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-13 22:11:54" itemprop="dateModified" datetime="2024-04-13T22:11:54+08:00">2024-04-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">web笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="xss跨站"><a href="#xss跨站" class="headerlink" title="xss跨站"></a>xss跨站</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>接收数据时，未进行相关过滤，使得接收数据时若收到script语句时仍被正常执行，属于前端漏洞。危害取决于代码语句的影响。且会收到浏览器内核版本限制。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射-非持续型"><a href="#反射-非持续型" class="headerlink" title="反射(非持续型)"></a>反射(非持续型)</h3><p>跨站语句局限于交互过程，只能够进行单次攻击。</p>
+<blockquote>
+<p>攻击不触及服务器</p>
+</blockquote>
+<h3 id="储存-持续型"><a href="#储存-持续型" class="headerlink" title="储存(持续型)"></a>储存(持续型)</h3><p>跨站语句存储到站点数据库中，能够持续进行攻击。</p>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>参数先与本地前端代码交互，不直接由后端代码进行处理。</p>
+<h2 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h2><h3 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</h3><blockquote>
+<p>什么是HttpOnly：cookie的一种属性，设置后无法通过js脚本读取到cookie，是一种有效防止xss攻击的手段</p>
+</blockquote>
+<p>cookie无法被读取，所以采用读取账号密码的方法</p>
+<ol>
+<li>无保存读取<br>利用表单劫持，通过跨站语句将登录时的数据包传送给跨站平台，从而得到管理员账号密码。<blockquote>
+<p>跨站语句必须上传在登录界面，限制较大</p>
+</blockquote>
+</li>
+<li>保存读取<br>与无保存的区别在于不局限于登录框，任意存储型xss，如留言板等都可以实现攻击</li>
+</ol>
+<h3 id="代码过滤"><a href="#代码过滤" class="headerlink" title="代码过滤"></a>代码过滤</h3><h4 id="onclick事件过滤"><a href="#onclick事件过滤" class="headerlink" title="onclick事件过滤"></a>onclick事件过滤</h4><p>script或&lt;&gt;被过滤情况下，可以通过添加onclick事件构造形如以下的代码实现xss攻击</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onclick:&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="html编码"><a href="#html编码" class="headerlink" title="html编码"></a>html编码</h4><p>过滤关键字情况下通过编码进行过滤</p>
+<h2 id="安全防护"><a href="#安全防护" class="headerlink" title="安全防护"></a>安全防护</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/09/esszy-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -427,7 +589,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -440,7 +602,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
